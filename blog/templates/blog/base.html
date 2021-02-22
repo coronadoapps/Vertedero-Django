@@ -43,24 +43,31 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-8">
-          {% block content %}
-        
-          {% endblock content %}
+        <div class="col-8 mt-2">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% block content %}          {% endblock content %}
         </div>
         <div class="col-4">
-          <div class="card mt-2 mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="content-section">
+            <div class="card mt-2 mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
             </div>
-          </div>
-          <div class="card mt-2 mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card mt-2 mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
             </div>
           </div>
         </div>
