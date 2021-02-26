@@ -5,24 +5,33 @@
 <head>
     <!-- Required meta tags -->
     <link rel="icon" href="{% static 'img/trash.png' %}">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet"> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% if title %}
-        <title>Vertedero - {{ title }}</title>
+      <title>Vertedero - {{ title }}</title>
     {% else %}
+      {% if user.is_authenticated %}
+        <title>Vertedero - {{ user.username }}</title>
+      {% else %}
         <title>Vertedero</title>
+      {% endif %}
     {% endif %}
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{% url 'blog-home'%}">
-          <img src="{% static 'img/trash.png' %}" alt="logo" style="width: 40px;">
+          <img src="{% static 'img/trash.png' %}" alt="logo" width="35" height="35">
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -37,7 +46,7 @@
           <ul class="navbar-nav mr-2 mt-2 mt-lg-0">
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile'%}">Profile</a>
+              <a class="nav-link" href="{% url 'profile'%}">{{ user.username }}</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout'%}">Logout</a>
@@ -69,11 +78,11 @@
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <div class="card mt-2 mb-4">
+            <div class="card border-dark mt-2 mb-4">
               <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-dark">Go somewhere</a>
               </div>
             </div>
           </div>
