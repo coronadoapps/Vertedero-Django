@@ -15,11 +15,7 @@
     {% if title %}
       <title>Vertedero - {{ title }}</title>
     {% else %}
-      {% if user.is_authenticated %}
-        <title>Vertedero - {{ user.username }}</title>
-      {% else %}
-        <title>Vertedero</title>
-      {% endif %}
+      <title>Vertedero - Home</title>
     {% endif %}
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -45,6 +41,9 @@
           <hr>
           <ul class="navbar-nav mr-2 mt-2 mt-lg-0">
             {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="btn btn-dark" href="{% url 'post-create'%}">New Post</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile'%}">{{ user.username }}</a>
             </li>

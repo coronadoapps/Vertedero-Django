@@ -7,6 +7,10 @@ nav{
     background-color: #333;
 }
 
+.nav-item{
+    color: #65cf43;
+}
+
 .card h2{
     font-size: 1.3rem;
 }
@@ -20,4 +24,19 @@ nav{
     width: 80px;
     height: 80px;
     border: solid 2px #92DD7A;
+}
+
+.article-img{
+    width: 50px;
+    height: 50px;
+}
+
+.article-title{
+    text-decoration: none; 
+    color: black;   
+}
+
+.article-title:hover{
+    text-decoration: none; 
+    color: #65cf43;   
 }
