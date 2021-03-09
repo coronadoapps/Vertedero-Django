@@ -10,7 +10,7 @@
                 <div class="col">
                     <h2>{{ object.title }}</h2>
                     <footer class="blockquote-footer">
-                        By <a href="#"><span class="badge badge-info"><strong>{{ object.author }}</strong></span></a> on {{ object.date_posted|date:"F d, Y" }}
+                        By <a href="{% url 'user-posts' object.author.username %}"><span class="badge badge-info"><strong>{{ object.author }}</strong></span></a> on {{ object.date_posted|date:"F d, Y" }}
                     </footer>
                 </div>
             </div>
